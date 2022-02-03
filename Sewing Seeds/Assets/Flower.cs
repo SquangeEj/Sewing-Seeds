@@ -6,19 +6,24 @@ public class Flower : MonoBehaviour
 {
     public Vector3 Scale, scalechange;
     public float growing = 0;
+    public float maxgrow = 100;
+    public float growspeed = 1;
+    
 
-
+    
 
     private void Start()
     {
         gameObject.transform.localScale = new Vector3(0, 0, 0);
+        growspeed = ((growspeed * 1000) * Random.Range(0.1f, 1.5f));
+
     }
     // Update is called once per frame
     void Update()
     {
-        if (growing < 100)
+        if (growing < maxgrow)
         {
-            growing += 0.01f;
+            growing += maxgrow /growspeed ; //lower growspeed = faster growing
             grow();
         }
     }
