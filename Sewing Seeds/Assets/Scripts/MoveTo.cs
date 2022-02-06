@@ -7,18 +7,26 @@ public class MoveTo : MonoBehaviour
 {
     public GameObject player;
     // public Transform goal;
-    public Vector3 StartPosition;
+    public Vector3 PlantPosition;
+    public Vector3 isitbackwards;
+    public GameObject Plant;
+    public float turnspeed;
     public string tagtodetect;
     public string State;
     public NavMeshAgent agent;
-    public Animator ballanimator;
+    public Animator animator;
     public bool playerseen = false;
+    public float waittime = 0;
+    public float startwaittime = 60;
+    public float height;
+    public float radius;
 
 
     private void Start()
     {
-        //ballanimator = GetComponent<Animator>();
-        StartPosition = transform.position;
+
+        // animator = GetComponent<Animator>();
+        PlantPosition = Plant.transform.position;
         player = GameObject.FindGameObjectWithTag(tagtodetect);
         agent = GetComponent<NavMeshAgent>();
     }
@@ -38,15 +46,37 @@ public class MoveTo : MonoBehaviour
 
                 //  player = GameObject.FindGameObjectWithTag(tagtodetect);
 
-                agent.destination = player.gameObject.transform.position;
+                if (player != null)
+                {
+                    agent.destination = player.gameObject.transform.position;
+                }
+                if(player == null)
+                {
+                    player = GameObject.FindGameObjectWithTag(tagtodetect);
+                }
 
                 break;
 
             case "Idle":
                 // NavMeshAgent agent = GetComponent<NavMeshAgent>();
-                agent.destination = StartPosition;
+                if (Plant != null)
+                {
+                    waittime -= 1;
+                    Debug.Log("lmao");
+                    if (waittime <= 0)
+                    {
+                        Vector3 randomDirection = Random.insideUnitSphere * radius;
+                        randomDirection += PlantPosition;
+                        NavMeshHit hit;
+                        NavMesh.SamplePosition(randomDirection, out hit, radius, 1);
+                        Vector3 finalPosition = hit.position;
+                        Debug.Log("lol");
+                        waittime = startwaittime;
+                        agent.destination = finalPosition; //PlantPosition + new Vector3(Random.Range(-15f, 15f), height-3, Random.Range(-15f, 15f));
+                    }
+                }
                 break;
-        }
+        } 
 
 
 
@@ -58,11 +88,13 @@ public class MoveTo : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("yeah its colliding idiot " + tagtodetect);
         
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag(tagtodetect))
         {
+            Debug.Log("lol fucked");
          
-            //ballanimator.SetBool("FoundPlayer", true);
+            animator.SetBool("Chase", true);
            
 
 
@@ -75,12 +107,12 @@ public class MoveTo : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag(tagtodetect))
         {
             State = "Idle";
             agent.stoppingDistance = 3f;
             
-            //ballanimator.SetBool("FoundPlayer", false);
+            animator.SetBool("Chase", false);
          
         }
     }
