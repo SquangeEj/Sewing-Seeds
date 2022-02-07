@@ -8,6 +8,9 @@ TagManager:
   - Bird
   - Spider
   - Plant
+  - Island
+  - Desert
+  - Snow
   layers:
   - Default
   - TransparentFX

@@ -5,6 +5,7 @@ using UnityEngine;
 public class randomcolour : MonoBehaviour
 {
     public Renderer[] rends;
+    public Material[] mats;
     private float randomhue, randomsat, randomval, randomalpha;
     public float maxhue, minhue;
     void Start()
@@ -16,6 +17,10 @@ public class randomcolour : MonoBehaviour
         foreach (Renderer rend in rends)
         {
             rend.material.color = Random.ColorHSV(randomhue, randomhue, randomsat, randomsat, randomval, randomval, randomalpha, randomalpha);
+        }
+        foreach (Material mat in mats)
+        {
+            mat.color = Random.ColorHSV(randomhue, randomhue, randomsat, randomsat, randomval, randomval, randomalpha, randomalpha);
         }
     }
 

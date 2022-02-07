@@ -13,7 +13,7 @@ public class Seed : MonoBehaviour
     {
         if (other.tag == "Farm")
         {
-            Instantiate(flower, transform.position, Quaternion.Euler(0.0f, Random.Range(0.0f, 360.0f), 0.0f));
+            Instantiate(flower, transform.position + new Vector3(0.0f,-0.1f,0.0f), Quaternion.Euler(0.0f, Random.Range(0.0f, 360.0f), 0.0f));
             Destroy(gameObject);
         }
     }

@@ -355,6 +355,12 @@ MonoBehaviour:
   startwaittime: 60
   height: 0
   radius: 0
+  rends: []
+  randomhue: 0
+  randomsat: 0
+  randomval: 0
+  randomalpha: 0
+  deathtime: 30
 --- !u!135 &8616319632725376120
 SphereCollider:
   m_ObjectHideFlags: 0

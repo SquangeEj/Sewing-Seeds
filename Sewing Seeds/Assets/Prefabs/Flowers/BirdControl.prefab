@@ -761,7 +761,7 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 2
+  m_Height: 12
   m_BaseOffset: 8
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
@@ -804,6 +804,7 @@ MonoBehaviour:
   randomsat: 0
   randomval: 0
   randomalpha: 0
+  deathtime: 300
 --- !u!65 &8773629095838411375
 BoxCollider:
   m_ObjectHideFlags: 0

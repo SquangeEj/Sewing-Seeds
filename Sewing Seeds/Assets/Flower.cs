@@ -12,13 +12,15 @@ public class Flower : MonoBehaviour
     public float growing = 0;
     public float maxgrow = 100;
     public float growspeed = 1;
-    public float spiderspawn = 1800;
+    public float spiderspawn = 30;
     
 
     
 
     private void Start()
     {
+        spiderspawn = 120;
+        spiderspawn *= 60;
         gameObject.transform.localScale = new Vector3(0, 0, 0);
         growspeed = ((growspeed * 1000) * Random.Range(0.1f, 1.5f));
         
@@ -44,7 +46,7 @@ public class Flower : MonoBehaviour
         spiderspawn -= 1;
         if(spiderspawn <0)
         {
-            spiderspawn = 1800;
+            spiderspawn = 120 * 60;
             Vector3 randomPosition = new Vector3(Random.Range(-30, 30) * 2f, 0f, Random.Range(-30, 30)) + this.transform.position;
             NavMeshHit hit;
             if (NavMesh.SamplePosition(randomPosition, out hit, 100f, NavMesh.AllAreas))

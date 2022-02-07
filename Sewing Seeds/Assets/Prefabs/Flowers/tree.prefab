@@ -301,7 +301,7 @@ MonoBehaviour:
   scalechange: {x: 0, y: 0, z: 0}
   growing: 0
   maxgrow: 160
-  growspeed: 10
+  growspeed: 12
   spiderspawn: 1800
 --- !u!54 &4211058167134380785
 Rigidbody:
@@ -363,6 +363,7 @@ MonoBehaviour:
   - {fileID: 5681998739978213516}
   - {fileID: 5681998738688545323}
   - {fileID: 5681998738709827348}
+  mats: []
   maxhue: 0.33
   minhue: 0.33
 --- !u!1 &5681998740530989421

@@ -5,36 +5,72 @@ using UnityEngine;
 
 public class Shooterrr : MonoBehaviour
 {
-    public GameObject[] seed;
+    public GameObject[] seedis;
+    public GameObject[] seedes;
+    public GameObject[] seedsn;
+    public string currentarea = "Island";
     public float shootforce= 5;
     public int currentflower = 0;
 
 
 
-    private void Start()
-    {
-        
-    }
+ 
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
             Debug.Log("yeah");
-            var bulletspawned = Instantiate(seed[currentflower], transform.position, transform.rotation);
-            bulletspawned.GetComponent<Rigidbody>().AddForce(shootforce * transform.forward, ForceMode.Impulse);
-            if (shootforce >= 10)
+            if (currentarea == "Island")
             {
-                shootforce -= 10f;
+
+
+                var seedisspawned = Instantiate(seedis[currentflower], transform.position, transform.rotation);
+                seedisspawned.GetComponent<Rigidbody>().AddForce(shootforce * transform.forward, ForceMode.Impulse);
             }
+
+            if (currentarea == "Desert")
+            {
+                var seedesspawned = Instantiate(seedes[currentflower], transform.position, transform.rotation);
+                seedesspawned.GetComponent<Rigidbody>().AddForce(shootforce * transform.forward, ForceMode.Impulse);
+            }
+            if (currentarea == "Snow")
+            {
+                var seedsnspawned = Instantiate(seedsn[currentflower], transform.position, transform.rotation);
+                seedsnspawned.GetComponent<Rigidbody>().AddForce(shootforce * transform.forward, ForceMode.Impulse);
+            }
+
+
+
         }
         if (Input.GetMouseButtonDown(1))
         {
             Debug.Log("Swapped Seed");
-            currentflower += 1;
+            if (currentflower == 1)
+            {
+                currentflower = 0;
+            }
+            else currentflower = 1;
         }
 
     }
 
-  
-   
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == ("Island"))
+        {
+            currentarea = "Island";
+            Debug.Log("Island");
+        }
+        if (other.tag == ("Snow"))
+        {
+            currentarea = "Snow";
+            Debug.Log("Snow");
+        }
+        if (other.tag == ("Desert"))
+        {
+            currentarea = "Desert";
+            Debug.Log("Desert");
+        }
+    }
+
 }

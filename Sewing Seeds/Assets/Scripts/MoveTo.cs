@@ -22,11 +22,13 @@ public class MoveTo : MonoBehaviour
     public float radius;
     public Renderer[] rends;
     public float randomhue,randomsat,randomval,randomalpha;
+    public float deathtime = 600;
 
 
 
     private void Start()
-    {
+    {   
+        deathtime *= 60;
         randomhue = Random.Range(0.0f, 1.0f);
         randomsat = Random.Range(0.0f, 1.0f);
         randomval = Random.Range(0.0f, 1.0f);
@@ -46,6 +48,9 @@ public class MoveTo : MonoBehaviour
     {
 
         EnemyState();
+        deathtime -= 1;
+        if(deathtime <0)
+        { Destroy(gameObject); }
     }
 
     void EnemyState()
@@ -104,8 +109,10 @@ public class MoveTo : MonoBehaviour
         if (other.gameObject.CompareTag(tagtodetect))
         {
             Debug.Log("lol fucked");
-         
-            animator.SetBool("Chase", true);
+            if (gameObject.GetComponent<Animator>())
+            {
+                animator.SetBool("Chase", true);
+            }
            
 
 
@@ -122,8 +129,10 @@ public class MoveTo : MonoBehaviour
         {
             State = "Idle";
             agent.stoppingDistance = 3f;
-            
-            animator.SetBool("Chase", false);
+            if (gameObject.GetComponent<Animator>())
+            {
+                animator.SetBool("Chase", false);
+            }
          
         }
     }
