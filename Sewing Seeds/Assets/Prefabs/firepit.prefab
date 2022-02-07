@@ -393,6 +393,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7775494206413938285}
+  - component: {fileID: 9157778668490063186}
   m_Layer: 0
   m_Name: firepit
   m_TagString: Untagged
@@ -431,6 +432,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!208 &9157778668490063186
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7775494206413938282}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 3.255, y: 3.33, z: 1.145}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -1.78, y: 1.21, z: -0.14}
+  m_TimeToStationary: 0.5
 --- !u!1001 &7775494205480853781
 PrefabInstance:
   m_ObjectHideFlags: 0
