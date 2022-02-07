@@ -64,6 +64,7 @@
     <Compile Include="Assets\Scripts\MoveTo.cs" />
     <Compile Include="Assets\Legscript.cs" />
     <Compile Include="Assets\KillScript.cs" />
+    <Compile Include="Assets\randomcolour.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

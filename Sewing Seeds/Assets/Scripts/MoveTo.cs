@@ -20,15 +20,26 @@ public class MoveTo : MonoBehaviour
     public float startwaittime = 60;
     public float height;
     public float radius;
+    public Renderer[] rends;
+    public float randomhue,randomsat,randomval,randomalpha;
+
 
 
     private void Start()
     {
-
+        randomhue = Random.Range(0.0f, 1.0f);
+        randomsat = Random.Range(0.0f, 1.0f);
+        randomval = Random.Range(0.0f, 1.0f);
+        randomalpha = Random.Range(0.0f, 1.0f);
         // animator = GetComponent<Animator>();
         PlantPosition = Plant.transform.position;
         player = GameObject.FindGameObjectWithTag(tagtodetect);
         agent = GetComponent<NavMeshAgent>();
+        foreach(Renderer rend in rends )
+        {
+            rend.material.color = Random.ColorHSV(randomhue, randomhue, randomsat, randomsat, randomval, randomval,randomalpha,randomalpha);
+        }
+        
     }
 
     void Update()

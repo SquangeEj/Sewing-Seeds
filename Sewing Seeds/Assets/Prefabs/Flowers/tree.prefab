@@ -255,6 +255,8 @@ GameObject:
   - component: {fileID: 5681998740288265429}
   - component: {fileID: 4211058167134380785}
   - component: {fileID: 3731243930773923217}
+  - component: {fileID: 1546005913346643237}
+  - component: {fileID: 5182593756007562475}
   m_Layer: 0
   m_Name: tree
   m_TagString: Plant
@@ -331,6 +333,38 @@ CapsuleCollider:
   m_Height: 6.179717
   m_Direction: 1
   m_Center: {x: 0, y: 2.5898585, z: 0}
+--- !u!136 &1546005913346643237
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5681998740288265426}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 2.1514165
+  m_Height: 8.324282
+  m_Direction: 2
+  m_Center: {x: 0.25141644, y: 5.291054, z: -0.22582531}
+--- !u!114 &5182593756007562475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5681998740288265426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99d3f67ab32ee694cb2d76709cbae900, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rends:
+  - {fileID: 5681998739978213516}
+  - {fileID: 5681998738688545323}
+  - {fileID: 5681998738709827348}
+  maxhue: 0.33
+  minhue: 0.33
 --- !u!1 &5681998740530989421
 GameObject:
   m_ObjectHideFlags: 0
